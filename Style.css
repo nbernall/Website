@@ -1,0 +1,231 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header-container {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.header-container h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.header-container p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.main-container {
+    display: flex; /* Asegura que la barra lateral y el contenido principal estén uno al lado del otro */
+    min-height: 100vh; /* Extiende la altura del contenedor principal al 100% del viewport */
+}
+
+.sidebar {
+    flex: 0 0 250px; /* Ancho fijo para la barra lateral */
+    background-color: #000; /* Color de fondo de la barra lateral */
+    color: #ffffff; /* Texto blanco */
+    min-height: 100vh; /* Extiende la barra lateral al 100% de la altura del viewport */
+    padding: 15px; /* Espaciado interno */
+}
+
+.content {
+    flex: 1; /* El contenido principal ocupa el espacio restante */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px; /* Reducir el espacio entre los elementos */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.1em; /* Reducir ligeramente el tamaño del texto */
+    display: flex; /* Alinear texto e ícono */
+    align-items: center; /* Centrar ícono y texto verticalmente */
+    gap: 12px; /* Reducir el espacio entre ícono y texto */
+    padding: 8px 15px; /* Reducir el padding interno */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animaciones suaves */
+}
+
+.sidebar ul li a i {
+    font-size: 1.3em; /* Reducir ligeramente el tamaño de los íconos */
+}
+
+.sidebar ul li a:hover {
+    background-color: #444444; /* Fondo más claro al pasar el mouse */
+    color: #007cf7; /* Texto azul */
+}
+
+.sidebar ul li.active a {
+    background-color: #555555; /* Fondo para el elemento activo */
+    font-weight: bold; /* Texto en negrita */
+}
+
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.about-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        width: 70%; /* Menú lateral más ancho en pantallas pequeñas */
+        height: 100vh;
+        background-color: #000;
+        color: white;
+        position: fixed; /* Fija el menú al lado izquierdo */
+        top: 0;
+        left: 0;
+        transform: translateX(-100%); /* Oculta la barra por defecto */
+        transition: transform 0.3s ease-in-out;
+        z-index: 999; /* Asegura que el menú esté encima */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Muestra el menú lateral */
+    }
+
+    .content {
+        margin-left: 0; /* El contenido ocupa todo el ancho */
+        padding-top: 80px; /* Espacio debajo del header */
+    }
+
+    .about-container {
+        flex-direction: column; /* Texto y foto en columna */
+        align-items: center; /* Todo centrado */
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 90%; /* Imagen más grande en pantallas pequeñas */
+        height: auto;
+        margin-top: 20px; /* Espaciado respecto al texto */
+    }
+}
+
+.teaching-container ul li {
+    margin-bottom: 10px; /* Espacio entre elementos principales */
+}
+
+.teaching-container ul ul li {
+    margin-bottom: 5px; /* Espacio entre elementos secundarios */
+    line-height: 1.6; /* Ajusta la altura de línea para una mejor lectura */
+}
+
+details {
+    margin-bottom: 15px; /* Espacio entre cada menú desplegable */
+}
+
+details summary {
+    font-size: 1.2em; /* Texto ligeramente más grande */
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff; /* Texto blanco */
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre texto e ícono */
+    background-color: #333333; /* Fondo gris oscuro */
+    transition: all 0.3s ease;
+}
+
+details summary:hover {
+    color: #f5f5f5;
+    border-color: #666666;
+    background-color: #444444;
+}
+
+details summary::before {
+    content: "▸";
+    font-size: 1.2em;
+    color: #f5f5f5;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+details[open] summary::before {
+    content: "▾";
+    color: #ffffff;
+    transform: rotate(0deg);
+}
+
+details summary:hover::before {
+    color: #bbbbbb;
+}
+
+.research-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 5px; /* Separar botones del texto */
+}
+
+.research ul li {
+    margin-bottom: 20px; /* Espacio entre cada paper */
+}
+
+
+.research-buttons a {
+    display: inline-block;
+    text-decoration: none; /* Quitar subrayado */
+    color: #333333; /* Texto azul */
+    font-size: 1em; /* Tamaño del texto */
+    font-weight: bold; /* Negrita para el texto */
+    padding: 5px 0; /* Espaciado interno */
+    border-bottom: 3px solid transparent; /* Línea inferior invisible inicialmente */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.research-buttons a:hover {
+    color: #333333; /* Azul más oscuro al pasar el mouse */
+    border-bottom: 3px solid #333333; /* Línea inferior azul más gruesa */
+}
+
